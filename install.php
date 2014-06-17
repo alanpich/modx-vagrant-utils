@@ -80,17 +80,6 @@ exec('sudo service apache2 stop');
 // -----------------------------------------------------------------------------------------
 
 /**
- * Remove the modx directory
- */
-Output::info('Preparing installation target');
-if(is_dir($config['base_path'])){
-    exec("rm -rf {$PATH}/*");
-    exec("rm -rf {$PATH}/.*");
-}
-
-// -----------------------------------------------------------------------------------------
-
-/**
  * Clone the git repo into place
  */
 Output::info("Cloning git repository from {$config['git_repo']}");
