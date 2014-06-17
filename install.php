@@ -83,9 +83,13 @@ exec('sudo service apache2 stop');
  * Clone the git repo into place
  */
 Output::info("Cloning git repository from {$config['git_repo']}");
-exec("git clone {$REPO} {$PATH}");
-Output::info("Switching to desired branch");
-exec("git --exec-path=$PATH checkout $BRANCH");
+exec("
+    cd /var/www/modx &&
+    git init && 
+    git add origin {$REPO} && 
+    git fetch && 
+    git checkout -t origin/{$BRANCH}
+")
 
 // -----------------------------------------------------------------------------------------
 
