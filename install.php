@@ -140,6 +140,14 @@ shell_exec('echo "DROP DATABASE IF EXISTS modx; CREATE DATABASE modx" | mysql -u
 // -----------------------------------------------------------------------------------------
 
 /**
+ * Set correct permissions
+ */
+ Output::info("Setting correct file permissions");
+ shell_exec("chown -R vagrant:vagrant {$PATH}");
+
+// -----------------------------------------------------------------------------------------
+
+/**
  * Add file to system to say that this script has run
  */
 touch($HERE.'/installer-has-run');
